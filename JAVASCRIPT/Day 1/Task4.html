@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<center>
+<html>
+<head>
+  <title>Form Manipulation</title>
+</head>
+
+<body>
+
+  <h1 style="background-color: cadetblue;">Form Manipulation</h1>
+
+  <div id="form-container">
+
+    <button style="background-color: antiquewhite;" onclick="addInput()">Add</button>
+    <button style="background-color: antiquewhite;" onclick="removeInput()">Remove</button>
+    <button style="background-color: antiquewhite;"onclick="replaceInput()">Replace</button>
+    <br><br>
+    <form id="dynamic-form"></form>
+
+  </div>
+
+ 
+  <script>
+
+    // Function to add input elements based on user selection
+
+    function addInput() {
+      const dynamicForm = document.getElementById('dynamic-form');
+      const selectElement = document.createElement('select');
+
+      selectElement.name = 'input-type';
+
+      const optionText = document.createElement('option');
+      optionText.value = 'text';
+      optionText.textContent = 'Text';
+
+      const optionEmail = document.createElement('option');
+      optionEmail.value = 'email';
+      optionEmail.textContent = 'Email';
+
+      const optionDate = document.createElement('option');
+      optionDate.value = 'date';
+      optionDate.textContent = 'Date';
+
+      const optionGender = document.createElement('option');
+      optionGender.value = 'gender';
+      optionGender.textContent = 'Gender';
+
+ 
+      selectElement.appendChild(optionText);
+      selectElement.appendChild(optionEmail);
+      selectElement.appendChild(optionDate);
+      selectElement.appendChild(optionGender);
+
+ 
+      selectElement.addEventListener('change', function() {
+        const selectedValue = this.value;
+        const inputField = document.createElement('input');
+        inputField.name = 'user-input';
+        inputField.type = selectedValue;
+
+ 
+        if (selectedValue === 'gender') {
+
+          inputField.type = 'radio';
+          inputField.name = 'gender';
+          inputField.value = 'male';
+          inputField.textContent = 'Male';
+
+ 
+          const femaleInput = document.createElement('input');
+          femaleInput.type = 'radio';
+          femaleInput.name = 'gender';
+          femaleInput.value = 'female';
+          femaleInput.textContent = 'Female';
+
+ 
+          dynamicForm.appendChild(inputField);
+          dynamicForm.appendChild(document.createTextNode('Male'));
+          dynamicForm.appendChild(femaleInput);
+          dynamicForm.appendChild(document.createTextNode('Female'));
+        } else {
+          dynamicForm.appendChild(inputField);
+        }
+      });
+      dynamicForm.appendChild(selectElement);
+    }
+    // Function to remove input elements
+
+    function removeInput() {
+      const dynamicForm = document.getElementById('dynamic-form');
+      while (dynamicForm.firstChild) {
+        dynamicForm.removeChild(dynamicForm.firstChild);
+      }
+    }
+    // Function to replace input elements (edit)
+
+    function replaceInput() {
+      removeInput();
+      addInput();
+    }
+
+  </script>
+
+</body>
+
+</html>
+</center>

@@ -1,0 +1,53 @@
+<!--Implement an associative array that contains the following:
+Machinename as the key and its IP Address as the value.
+Store names of several machines and their respective IPAddress
+Given the name of a machine, associated IP Address must be printed.
+Write a script that creates an object with bookID, bookPrice, bookTitle and price as the fields in that objects. The script must take input values from the user and store it in these respective fields. Finally define a function called print() inside that object to print these values.
+-->
+<center>
+<html>
+    <head>
+        <title > TASK 5 Machine Names & IP Address</title>
+    </head>
+
+<body style="background-color: antiquewhite;">
+    <h1>Machine Names and IP Address</h1>
+    <script>
+        //Associative Array
+        const machineData={
+            "CHEETAH":"192.168.1.14",
+            "COBRA":"192.168.1.27",
+            "EAGLE":"192.168.1.157",
+            "JARVIS":"192.168.1.70",
+        }
+        for(const machinename in machineData){
+            document.writeln("Machine Name : "+machinename+" &nbsp;IP Address : "+machineData[machinename]+"<br>");
+        }
+       
+    </script>
+
+    <!-- BOOK INFORMATION-->
+    <h1>Book Information</h1>
+    <script>
+        const bookInfo ={
+            bookID:"",
+            bookTitle:"",
+            bookPrice:""
+        }
+
+        var Book = new Object();
+        Book.bookID = prompt("Enter BookID ",1);
+        Book.bookTitle = prompt("Enter Book Name");
+        Book.bookPrice = prompt("Enter Book price $");
+
+        document.writeln("Book ID : "+Book.bookID+"<br>Book Name : "+Book.bookTitle+"<br>Book Price : "+Book.bookPrice);
+
+        
+    //Print Function
+    
+
+    </script>
+</body>
+</html>
+
+</center>

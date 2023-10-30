@@ -1,0 +1,84 @@
+<center><b>User Information</b><br><br>
+<script>
+    function checkFirstName(){
+        var fname=document.forms[0].firstName.value;     // Retrieve the data into the local variable fname
+        if (fname=="")
+           // window.alert("First Name is Mandatory")
+        var nerror=document.getElementById("nameerror");
+        nerror.style.fontWeight="bold"
+        nerror.style.fontStyle="italic"
+        nerror.innerHTML="First Name is Mandatory";
+       // document.forms[0],firstName.focus();        // Shift the focus back to the firstname field , It makes firstname field active
+    }
+    function checkAge(){
+        var empage=document.forms[0].empAge.value;
+        if(empage == ""){
+            window.alert("Age is mandatory")
+
+        }
+    }
+    function clearerror(){
+        document.getElementById("nameerror").innerHTML="";
+    }
+    function startdate(){
+        var sdate=document.forms[0].joindate.value;
+        document.forms[0].projectjoindate.min=sdate;
+        
+    }
+    function confirmReset(){
+        var status = confirm("Want to reset and lose the data ?");
+        console.log(status);
+        return status;
+    }
+    function enableSave(){
+        //We can use Path (document.forms[0].saveStatus) or getElementByName()
+        var v=document.getElementsByName("saveStatus");
+        var checkstate = v[0].checked;
+        document.getElementById("save").disabled=!checkstate;         // In HTML it  disables the disabled in Save Button => (disable <> enable) FALSE & TRUE
+    }                                                                 // Use Not(!) Boolean function to change True or False
+</script>
+
+    <!--<form action="#" novalidate onreset="if true == confirmReset() reset()">  -->             
+<body background="https://images.unsplash.com/photo-1540270776932-e72e7c2d11cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80 
+" style="background-size: 100%;">
+    <form action="#" novalidate onreset="return confirmReset()" >               
+        <label>Employee ID</label><input type="text" name="employeeID" 
+            value="100" readonly/><br>
+
+        <label for="fname">First Name</label><input type="text"
+            name="firstName" placeholder="Enter your name" required   
+            maxlength="30" minlength="6" onblur="checkFirstName()" onfocus="clearerror()"/>       <!--onfocus event to highlight-->
+            <label id="nameerror" style="color: red;"></label>  <br>        <!--Label-->            
+
+        <label>Age</label><input type="number" min="18" max="60"
+            name="empAge" size="10" onblur="checkAge()"/><br>        
+        
+        <label for="Volume">Preferred Volume</label><input type="range" min="10" max="100" 
+            style="width: 200;" oninput="updateVolume()" name="Volume"/>       <!--Javascript function call-->
+        <input type="text" name="VolumeLevel" style="width: 60px;height: 15px;" readonly/><br>
+        
+        <label>Date OF Joining</label>&nbsp;<input type="date" name="joindate" min="1998-03-31" max="2023-10-04" onchange="startdate()"/><br>
+
+        <label>Project Joining Date</label>&nbsp;<input type="date" name="projectjoindate" min="1998-03-31" max="2023-10-04"/><br>
+
+        
+        <label>Upload Resume</label><input type="file" name="resume" accept="audio/mp3, video/mp4, video/mpeg, .pdf"/><br>
+
+        <label>Enter Your e-mail</label>&nbsp;<input type="email" name="Mail" minlength="6"/><br><br>
+
+        <input type="checkbox" name="saveStatus" onclick="enableSave()"/>Agree to Terms & Conditions<br><br>
+      <!-- <label> Upload Picture</label>&nbsp;<input type="image" name="pic"/><br><br>--> 
+
+        <input type="submit" value="Save" id="save" disabled/>&nbsp;&nbsp;<input type="reset"
+            value="reset"/>                                         
+    </form>
+</body>
+<!--Javascript for Volume -->
+<script>    
+    function updateVolume(){
+        document.forms[0].VolumeLevel.value= 
+        document.forms[0].Volume.value + "%";
+    }
+</script>
+</center>
+

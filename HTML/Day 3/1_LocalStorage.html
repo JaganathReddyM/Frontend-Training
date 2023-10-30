@@ -1,0 +1,46 @@
+<center><b>User Information</b><br><br>
+
+    <form action="#" onclick="saveData()">               
+        <label>Employee ID</label><input type="text" name="employeeID" 
+            value="10"/><br>
+
+        <label for="fname">First Name</label><input type="text"
+            name="firstName" placeholder="Enter your name" required   
+            maxlength="30" minlength="6"/><br>                      
+
+        <label>Age</label><input type="number" min="18" max="60"
+            name="empAge" size="10"/><br>  
+         
+        <fieldset>Select Gender 
+        <input type="radio" name="Gender" value="M"/>Male<input type="radio" name="Gender" value="F"/>Female<br>
+        </fieldset><br><br>
+        
+        <b>Hobbies</b>
+        <fieldset>
+            <input type="checkbox" name="hobbies" value="Cricket"/>Cricket<br>
+            <input type="checkbox" name="hobbies" value="Music"/>Music<br>
+            <input type="checkbox" name="hobbies" value="Playing Games"/>Playing Games<br>
+        </fieldset>
+
+    <input type="button" value="Save"/>&nbsp;&nbsp;<input type="reset"
+        value="reset"/>                                         
+    </form>
+
+<!--JavaScript-->
+<script>
+    function saveData(){
+        var v=document.forms[0].employeeID.value;
+        var a=document.forms[0].firstName.value;
+        var b=document.forms[0].empAge.value;
+        console.log(v+ "\t\t" + a + "\t\t" + b);
+
+    // We can also use inbuilt localStorage in JavaScript for storing the data.If we use both Html& JS, JS will override the html
+        localStorage.employeeID=v
+        localStorage.firstName=a
+        localStorage.empAge=b 
+    
+
+    }
+</script>
+</center>
+

@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <div id="d1" style="color: rgb(32, 26, 206);">
+        </div>
+    </body>
+
+    <script>
+        var age=prompt("Enter your age",18);
+        try{
+        if(age<18)
+             throw "You are a kid"                       //  document.writeln("You can apply for job...");
+        else if(age > 60)
+            throw "Take Rest";
+        else
+            document.writeln("You can apply for the job...")
+        }catch(e){
+            var divTag=document.getElementById("d1");
+            divTag.innerHTML=e;
+        }finally{
+            document.writeln("<br><b> Now Register for an Email</b>");
+            window.open("http://mail.yahoo.com","_self");
+            //_self - open yahoo website in same tab
+            //_blank or _target = open in a new tab
+        }
+        
+    </script>
+
+</html>

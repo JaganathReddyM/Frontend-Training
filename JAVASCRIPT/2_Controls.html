@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Controls Example</title>
+</head>
+<body>
+    <b>Controls Example</b><br>
+
+    <script type="text/javascript">
+        var cnt = 0;
+        while (cnt < 10) {
+            cnt++;
+            document.writeln("<b>" + cnt + "</b><br>");
+        }
+
+        for (cnt = 0; cnt < 10; cnt++)
+            document.writeln("<b>" + cnt + "</b><br>");
+
+        if (cnt == 10)
+            document.writeln("TEN");
+        else
+            document.writeln("Not TEN");
+
+        var n = 'a';
+        switch (n) {
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+                document.writeln("<br>All are vowels....");
+            case "t":
+                document.writeln("<br>It is a letter...");
+                break; // Add a break statement to prevent fall-through.
+            default:
+                document.writeln("Not vowels");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<style>
+    
+    div > :first-child{
+        background-color: fuchsia;
+    }
+
+    div > div :last-child{
+        border: 5px; border-style: groove;
+    }
+</style>
+
+
+<body> <!--Parent Tag-->
+    
+    <div>  <!--Child of Body-->    <!--Outer div-->
+
+        <b>Bold 1</b><br>
+        <i>Italic 1</i>
+        <div>                                   <!--Inner Div is the last child of Outer Div-->
+            <u>Underline</u>
+            <h2>Header 1</h2>                   
+        </div>
+        <p> Para 1</p>
+    </div>
+    
+</body>

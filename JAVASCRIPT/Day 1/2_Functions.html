@@ -1,0 +1,25 @@
+<html>
+    <script>
+        function test(num1, num2){
+            document.writeln(Math.sqrt(num1) + "<br>");
+            document.writeln(Math.sqrt(num2) + "<br>");
+        }
+        test(100, 200); //function call
+        test(1000, 2000);// function call
+          //2nd way of defining a function
+        var validate=function (age){
+            if(age <=18 || age >=60)
+            document.writeln("<B>Not eligible for job...</b>");
+            else
+            document.writeln("<B>Eligible for job...</b>");
+        }
+        validate(22); //normal fucntion call
+        //3rd
+        var calc = new Function("num1", "num2",
+         "document.writeln(num1 * num2 + '<br>'); document.writeln(num1 + num2);");
+
+        calc(100, 200);
+
+
+    </script>
+</html>

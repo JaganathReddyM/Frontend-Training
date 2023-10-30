@@ -1,0 +1,37 @@
+<center><b>User Information</b><br><br>
+
+    <form action="#">               <!-- # means dont send data to the server, Stay in the same page like A Dummy-->
+        <label>Employee ID</label><input type="text" name="employeeID" 
+            value="100" readonly/><br>
+
+        <label for="fname">First Name</label><input type="text"
+            name="firstName" placeholder="Enter your name" required   
+            maxlength="30" minlength="6"/><br>                      <!-- placeholder use - shows the suggestions if it is empty
+                                                                         required - Mandatory, it will do validation-->
+        <label>Age</label><input type="number" min="18" max="60"
+            name="empAge" size="10"/><br>        
+        
+        <label for="Volume">Preferred Volume</label><input type="range" min="10" max="100"
+            style="width: 200;" oninput="updateVolume()" name="Volume"/>       <!--Javascript function call-->
+        <input type="text" name="VolumeLevel" style="width: 60px;height: 15px;" readonly/><br>
+        
+        <label>Date OF Joining</label>&nbsp;<input type="date" name="joindate" min="1998-03-31" max="2023-09-26"/><br>
+        
+        <label>Upload Resume</label><input type="file" name="resume" accept="audio/mp3, video/mp4, video/mpeg, .pdf"/><br>
+
+        <label>Enter Your e-mail</label>&nbsp;<input type="email" name="Mail" minlength="6"/><br>
+
+      <!-- <label> Upload Picture</label>&nbsp;<input type="image" name="pic"/><br><br>--> 
+
+    <input type="submit" value="Save"/>&nbsp;&nbsp;<input type="reset"
+        value="reset"/>                                         
+    </form>
+<!--Javascript for Volume -->
+<script>    
+    function updateVolume(){
+        document.forms[0].VolumeLevel.value= 
+        document.forms[0].Volume.value + "%";
+    }
+</script>
+</center>
+

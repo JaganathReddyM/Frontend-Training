@@ -1,0 +1,27 @@
+<html>
+    <script>
+        //Associative Array
+        var dict=[];
+        dict["India"]="New Delhi";          //India, USA & Japan are the keys
+        dict["USA"]="Washington";
+        dict["Japan"]="Tokyo";
+        document.writeln(dict["India"]+"<br>");
+        document.writeln(dict["Japan"]+"<BR>");
+        
+        
+        var obj = new Object(); //Object obj for object class
+        obj.empID = 100;    // empID is the key. 100 is the value
+        obj.firstname = "Jaganath";     //key value pair
+        obj.lastname = "Mandaluri"
+        document.writeln(obj.empID +"&nbsp;&nbsp"+obj.firstname);
+        document.writeln("<BR>"+obj["firstname"]+"&nbsp;&nbsp"+obj["lastname"]);
+
+        obj.getFirstName=function(){return this.firstname;};
+        obj.getLasttName=function(){return this.lastname;};
+        document.writeln("<BR> FirstName : "+obj.getFirstName());
+    </script>
+
+    <body>
+
+    </body>
+</html>

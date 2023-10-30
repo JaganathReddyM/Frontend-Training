@@ -1,0 +1,35 @@
+<center><b>User Information</b><br><br>
+
+    <form action="#" onclick="saveData()">               
+        <label>Employee ID</label><input type="text" name="employeeID" 
+            value="10"/><br>
+
+        <label for="fname">First Name</label><input type="text"
+            name="firstName" placeholder="Enter your name" required   
+            maxlength="30" minlength="6"/><br>                      
+
+        <label>Age</label><input type="number" min="18" max="60"
+            name="empAge" size="10"/><br>        
+        
+    <input type="button" value="Save"/>&nbsp;&nbsp;<input type="reset"
+        value="reset"/>                                         
+    </form>
+
+<!--JavaScript-->
+<script>
+    function saveData(){
+        var v=document.forms[0].employeeID.value;
+        var a=document.forms[0].firstName.value;
+        var b=document.forms[0].empAge.value;
+        console.log(v+ "\t\t" + a + "\t\t" + b);
+
+    // We can also use inbuilt sessionStorage in JavaScript for storing the data.If we use both Html& JS, JS will override the html
+       /* sessionStorage.employeeID=v
+        sessionStorage.firstName=a
+        sessionStorage.empAge=b */
+    
+
+    }
+</script>
+</center>
+

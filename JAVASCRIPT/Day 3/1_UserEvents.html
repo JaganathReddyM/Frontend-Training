@@ -1,0 +1,22 @@
+<html>
+    <body background="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg" style="background-size: 100%100%;">
+<script>
+        var evt = new Event("count");
+        var counter=0;
+        function countAndShow(){
+            setInterval(function(){
+                counter++;
+                document.getElementById("cnt").value=counter;},1000,10);
+            // setInterval(<taskToBeDone>,<time interval/frequency is milliseconds>)   , This Anonymous function
+        }
+        document.addEventListener("count",countAndShow);
+        function startCounting(){
+            document.dispatchEvent(evt);        // It will start the Event
+        }    
+</script>
+        <center>
+        <input type="number" min="1" max="100000" id="cnt"/>
+        <br><br><input type="button" value="Start" onclick="startCounting()"/>
+        </center>
+    </body>
+</html>

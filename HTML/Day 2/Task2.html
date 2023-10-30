@@ -1,0 +1,117 @@
+<!--TASK:
+Using Forms Create - FirstName, LastName, Address,Mobile,  E-Mail
+And below that add a ‘Add’ button - After clicking it should store in Session Storage
+And besides add a ‘Get’ button - After clicking it should show the data in the tabular form
+After completing , Create a hyperlink in the previous TASK below, If we click that in the Homepage , it should direct to this page.
+-->
+<title>Day 2 Assignment</title>
+
+<body background="C:\Frontend Concepts\HTML\Week One\Day 1\Ultrahd.jpg" ></body>
+<center>
+    
+<h1>Personal Information</h1><br>
+<form>
+    <label for="fname" >First Name:</label>
+    <input  type="text" name="firstname" placeholder="Enter your first name" required minlength="2" maxlength="30" /><br><br>
+
+    <label for="lname">Last Name:</label>
+    <input type="text" name="lastname" placeholder="Enter your last name" required minlength="2" maxlength="30" /><br><br>
+
+    <label for="address">Address:</label>
+    <input type="text" name="address" placeholder="Enter your address" required minlength="5" maxlength="100" /><br><br>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" name="mobile" placeholder="Enter your mobile number" required minlength="10" maxlength="15" /><br><br>
+
+    <label for="email">Email Address:</label>
+    <input type="email" name="email" placeholder="Enter your email address" required /><br><br>
+
+    <input type="button" onclick="ADD()" value="ADD" />&nbsp;&nbsp;
+    <input type="button" onclick="GET()" value="Get" />&nbsp;&nbsp;
+    <input type="reset" value="reset" /><br><br>
+
+</form>
+
+<br>
+
+ 
+<h2>Stored Data </h2>
+<table border="1" style="background-color: antiquewhite;" >
+
+    <thead>
+        <tr >
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Mobile Number</th>
+        <th>Email Address</th>
+        </tr>
+    </thead>
+
+    <tbody id="dataContainer">
+    </tbody>
+
+</table>
+
+ 
+
+<script>
+    function ADD() {
+
+        var firstName = document.forms[0].firstname.value;
+        var lastName = document.forms[0].lastname.value;
+        var address = document.forms[0].address.value;
+        var mobile = document.forms[0].mobile.value;
+        var email = document.forms[0].email.value;
+ 
+
+        sessionStorage.setItem('firstName', firstName);
+        sessionStorage.setItem('lastName', lastName);
+        sessionStorage.setItem('address', address);
+        sessionStorage.setItem('mobile', mobile);
+        sessionStorage.setItem('email', email);
+        alert("Data has been Successfully Added");
+        clearForm();
+    }
+    function clearForm() {
+        document.getElementById("UserForm").reset();
+            }
+    function GET() {
+
+        var dataContainer = document.getElementById('dataContainer');
+        dataContainer.innerHTML = '';
+
+ 
+        var firstName = sessionStorage.getItem('firstName');
+        var lastName = sessionStorage.getItem('lastName');
+        var address = sessionStorage.getItem('address');
+        var mobile = sessionStorage.getItem('mobile');
+        var email = sessionStorage.getItem('email');
+
+ 
+        if (firstName && lastName && address && mobile && email) {
+            var row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${firstName}</td>
+                <td>${lastName}</td>
+                <td>${address}</td>
+                <td>${mobile}</td>
+                <td>${email}</td>
+            `;
+
+            /*These lines create a new table row (<tr>) element and set its innerHTML
+            property to create table data cells (<td>) that display the values of the retrieved
+            firstName, lastName, address, mobile, and email variables. The ${} syntax is used for
+            string interpolation to insert these values into the HTML markup.*/
+
+            dataContainer.appendChild(row);
+
+        }
+
+    }
+
+</script>
+
+</center>
+
+<a href="C:\Frontend Concepts\HTML\Week One\Day 1\Task1.html" title="Redirecting to the HomePage" style="color: crimson;"> Home Page</a>

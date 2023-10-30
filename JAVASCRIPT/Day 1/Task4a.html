@@ -1,0 +1,61 @@
+<html>
+    <script>
+function eliminateDuplicates(arr) {
+  return [...new Set(arr)];
+}
+function mergeArraysWithoutDuplicates(arrA, arrB) {
+  const mergedArray = [...arrA];
+  for (const element of arrB) {
+    if (!arrA.includes(element)) {
+      mergedArray.push(element);
+    }
+  }
+  return mergedArray;
+}
+
+const arrayA = [1, 2, 3, 4, 5];
+
+const arrayB = [3, 4, 5, 6, 7];
+
+const uniqueArrayA = eliminateDuplicates(arrayA);
+const mergedArray = mergeArraysWithoutDuplicates(uniqueArrayA, arrayB);
+
+ 
+document.writeln("Array A without duplicates:"+ uniqueArrayA + "<br>");
+document.writeln("Merged array without duplicates:"+ mergedArray+ "<br>");
+
+</script>
+
+
+</html><br><br>
+
+<!--TASK b-->
+
+<html>
+
+    <body>
+    <script>
+const array = [5, 2, 9, 1, 5, 6];
+
+function compareDescending(a, b) {
+  return b - a;
+}
+array.sort(compareDescending);
+document.writeln("Array after descending : " + array + "<br>");
+
+</script>
+
+ 
+<script>
+const arr = [1, 2, 3, 4, 5];
+
+const elementToDelete = 3;
+
+const newArray = arr.filter(item => item !== elementToDelete);
+
+document.writeln("New Array after deletion : " + newArray + "<br>");
+</script>
+
+</body>
+
+</html>
